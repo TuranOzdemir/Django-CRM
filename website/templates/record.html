@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+
+    
+    <div class="card">
+        <div class="card-header">
+            <h1>Customer Record</h1>
+        </div>
+        <div class="card-body">
+            <div class="card-title" style="display: flex; align-items: center;">
+                    <h3 class = "card-title text-danger" style = "margin-right: 10px;">{{ customer_record.id }} |</h3>
+                <h3 class="card-title">{{ customer_record.first_name }} {{ customer_record.last_name }} </h3>
+            </div>
+            <table class = "table table-striped table-hover"  >
+                <tr>
+                    <td >Email:</td>
+                    <td class= "editable" >{{ customer_record.email }}</td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>{{ customer_record.phone }}</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>{{ customer_record.address }}</td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>{{ customer_record.city }}</td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>{{ customer_record.state }}</td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>{{ customer_record.zipcode }}</td>
+                </tr>
+                <tr>
+                    <td>Created At:</td>
+                    <td>{{ customer_record.created_at }}</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+        </br>
+        <a href = "{% url 'home' %}" class = "btn btn-secondary" style = "margin-right: 10px;">Back</a>
+        <a href = "{% url 'delete_record' customer_record.id %}" class = "btn btn-danger " style = "margin-right: 10px;">Delete</a>
+        <a href = "{% url 'update_record' customer_record.id %}" class = "btn btn-primary " style = "margin-right: 10px;">Update</a>
+
+
+    <!-- Add more fields as necessary -->
+
+{% endblock %}
